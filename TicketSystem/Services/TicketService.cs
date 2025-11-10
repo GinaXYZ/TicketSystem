@@ -34,13 +34,13 @@ namespace TicketSystem.Services
         {
             var ticket = _tickets.FirstOrDefault(t => t.Id == id);
             if (ticket == null) return null;
-            return new TicketViewModel
+           /* return new TicketViewModel
             {
                 Id= ticket.Id,
                 Title = ticket.Title,
                 Description = ticket.Description,
                 Status = ticket.Status,
-
+           */
             }
         }
     }

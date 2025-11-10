@@ -1,3 +1,7 @@
+using Microsoft.AspNetCore.Builder;
+using TicketSystem.Services;
+using TicketSystem.ViewModels;
+
 
 namespace TicketSystem
 {
@@ -7,16 +11,14 @@ namespace TicketSystem
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             builder.Services.AddAuthorization();
+            builder.Services.AddScoped<TicketService>();
 
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -27,25 +29,24 @@ namespace TicketSystem
 
             app.UseAuthorization();
 
-            var summaries = new[]
-            {
-                "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-            };
 
-            app.MapGet("/weatherforecast", (HttpContext httpContext) =>
+            app.MapGet("/api/tickets", (TicketService service) =>
             {
-                var forecast = Enumerable.Range(1, 5).Select(index =>
-                    new WeatherForecast
-                    {
-                        Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                        TemperatureC = Random.Shared.Next(-20, 55),
-                        Summary = summaries[Random.Shared.Next(summaries.Length)]
-                    })
-                    .ToArray();
-                return forecast;
+                return Results.Ok(service.GetAllTickets());
+
             })
-            .WithName("GetWeatherForecast")
+            .WithName("GetTickets")
             .WithOpenApi();
+
+            app.MapPost("/api/tickets", (CreateTicketRequest request, TicketService service) =>
+            {
+                var ticket = service.CreateTicket(request);
+                return Results.Created($"/api/tickets/{ticket.Id}", ticket);
+            })
+                .WithName("CreateTicket")
+                .WithOpenApi();
+
+
 
             app.Run();
         }

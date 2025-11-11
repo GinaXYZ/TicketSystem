@@ -13,10 +13,12 @@ namespace TicketSystem
 
             builder.Services.AddAuthorization();
             builder.Services.AddScoped<TicketService>();
+            builder.Services.AddControllersWithViews();
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddControllers();
             var app = builder.Build();
 
             if (app.Environment.IsDevelopment())
@@ -26,9 +28,12 @@ namespace TicketSystem
             }
 
             app.UseHttpsRedirection();
-
+            app.UseStaticFiles();
             app.UseAuthorization();
 
+            app.MapControllerRoute(
+            name: "default",
+            pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.MapGet("/api/tickets", (TicketService service) =>
             {

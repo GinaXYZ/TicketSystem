@@ -297,3 +297,4 @@ C:\Users\FIA\source\repos\TicketSystem\TicketSystem\obj\Debug\net8.0\refint\Tick
 C:\Users\FIA\source\repos\TicketSystem\TicketSystem\obj\Debug\net8.0\TicketSystem.pdb
 C:\Users\FIA\source\repos\TicketSystem\TicketSystem\obj\Debug\net8.0\TicketSystem.genruntimeconfig.cache
 C:\Users\FIA\source\repos\TicketSystem\TicketSystem\obj\Debug\net8.0\ref\TicketSystem.dll
+C:\Users\FIA\source\repos\TicketSystem\TicketSystem\bin\Debug\net8.0\bundleconfig.json

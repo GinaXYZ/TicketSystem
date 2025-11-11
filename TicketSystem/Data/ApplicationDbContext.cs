@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.EntityFrameworkCore;
+using TicketSystem.Models;
 
 namespace TicketSystem.Data
 {
-    public class ApplicationDbContext : Controller
+    public class ApplicationDbContext : DbContext
     {
-        public IActionResult Index()
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) 
+            : base(options)
         {
-            return View();
         }
+
+        public DbSet<Ticket> Tickets { get; set; }
     }
 }

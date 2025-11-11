@@ -6,13 +6,9 @@ namespace TicketSystem.Services
     public class TicketService
     {
 
-        private readonly List<Ticket> _tickets = new();
+        private readonly List<Ticket> _tickets = [];
         public IEnumerable<Ticket> GetAllTickets()
         {
-            Id = t.Id,
-            Title = t.Title,
-            Description = t.Description,
-            Status = t.Status
             return _tickets;
         }
 
@@ -30,11 +26,11 @@ namespace TicketSystem.Services
             return ticket;
         }
 
-        public Ticket GetTicketById(int id)
+        /*public Ticket GetTicketById(int id)
         {
             var ticket = _tickets.FirstOrDefault(t => t.Id == id);
             if (ticket == null) return null;
-           /* return new TicketViewModel
+            return new TicketViewModel
             {
                 Id= ticket.Id,
                 Title = ticket.Title,
@@ -43,5 +39,5 @@ namespace TicketSystem.Services
            */
             }
         }
-    }
-}
+   
+

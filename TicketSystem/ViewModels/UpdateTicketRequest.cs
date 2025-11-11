@@ -2,11 +2,10 @@
 
 namespace TicketSystem.ViewModels
 {
-    public class UpdateTicketRequest : Controller
+    public class UpdateTicketRequest
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public string? Title { get; set; }
+        public string? Description { get; set; }
+        public string? Status { get; set; }
     }
 }

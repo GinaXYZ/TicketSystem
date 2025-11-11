@@ -2,11 +2,9 @@
 
 namespace TicketSystem.ViewModels
 {
-    public class CreateTicketRequest : Controller
+    public class CreateTicketRequest 
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public string Title { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
     }
 }

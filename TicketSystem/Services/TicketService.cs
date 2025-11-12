@@ -1,43 +1,59 @@
 ﻿using TicketSystem.Models;
 using TicketSystem.ViewModels;
+using TicketSystem.Services.Interfaces;
 
 namespace TicketSystem.Services
 {
     public class TicketService
     {
 
-        private readonly List<Ticket> _tickets = [];
-        public IEnumerable<Ticket> GetAllTickets()
+        private readonly ITicketRepository _repository;
+
+        public TicketService(ITicketRepository repository)
         {
-            return _tickets;
+            _repository = repository;
         }
 
-        public Ticket CreateTicket(CreateTicketRequest request)
+        public async Task<IEnumerable<Ticket>> GetAllTicketsAsync()
+        {
+            return await _repository.GetAllAsync();
+        }
+
+        public async Task<Ticket?> GetTicketByIdAsync(int id)
+        {
+            return await _repository.GetByIdAsync(id);
+
+        }
+
+        public async Task<Ticket> CreateTicketAsync(CreateTicketRequest model)
         {
             var ticket = new Ticket
             {
-                Id = _tickets.Count + 1,
-                Title = request.Title,
-                Description = request.Description,
-                Status = "Open",
-                CreatedAt = DateTime.UtcNow
+                Title = model.Title,
+                Description = model.Description,
+                CreatedAt = DateTime.UtcNow,
+                Status = "Open"
             };
-            _tickets.Add(ticket);
-            return ticket;
+            return await _repository.CreateAsync(ticket);
         }
 
-        /*public Ticket GetTicketById(int id)
+        public async Task<Ticket?> UpdateTicketAsync(int id, UpdateTicketRequest model)
         {
-            var ticket = _tickets.FirstOrDefault(t => t.Id == id);
-            if (ticket == null) return null;
-            return new TicketViewModel
+            var existingTicket = await _repository.GetByIdAsync(id);
+            if (existingTicket == null)
             {
-                Id= ticket.Id,
-                Title = ticket.Title,
-                Description = ticket.Description,
-                Status = ticket.Status,
-           */
+                return null;
             }
+            existingTicket.Title = model.Title;
+            existingTicket.Description = model.Description;
+            existingTicket.Status = model.Status;
+            return await _repository.UpdateAsync(existingTicket);
         }
+        public async Task<bool> DeleteTicketAsync(int id)
+        {
+            return await _repository.DeleteAsync(id);
+        }
+    }
+}
    
 

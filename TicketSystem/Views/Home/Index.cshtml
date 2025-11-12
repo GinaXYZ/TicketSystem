@@ -2,6 +2,27 @@
     ViewData["Title"] = "Home";
 }
 
-<div>
-    <p>Hier kannst du Tickets verwalten und bearbeiten.</p>
-</div>
+<button class="submit" id="CreateTicketRequest" onclick="CreateTicketRequest()">Neues Ticket erstellen</button>
+<button class="submit" onclick="UpdateTicketRequest()">Ticket bearbeiten</button>
+<button class="submit" onclick="DeleteTicketRequest()">Ticket löschen</button>
+<button class="submit" onclick="UpdateTicketRequest()">Ticket bearbeiten</button>
+<div ></div>
+
+
+
+<style>
+    button.submit {
+        background-color: #4f765a;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+        margin: 10px;
+        font-family: Helvetica, sans-serif;
+		text-align: center;
+        display: flex;
+		justify-content: center;
+	}
+</style>

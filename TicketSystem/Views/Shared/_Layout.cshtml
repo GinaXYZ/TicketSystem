@@ -6,14 +6,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - TicketSystem</title>
+    <title>Ticket System</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
         <h1>Ticket System</h1>
-    </header>
+	</header>
+	<div class="text-center mt-4">
+		<p>Hier kannst du Tickets verwalten und bearbeiten.</p>
+	</div>
     <main class="container mt-4">
         @RenderBody()
     </main>
@@ -27,8 +30,17 @@
 		text-align: center;
 	}
 
-    .footer {
-        color: #4f765a;
-        font-size: 0.9em;
+	text-center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 1.2em;
+		color: black;
+		font-family: Helvetica, sans-serif;
+		text-align: center;
 	}
 </style>
+
+
+
+

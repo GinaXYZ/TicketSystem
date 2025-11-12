@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "TicketSystem.Program\u002B\u003C\u003Ec",
-    "Method": "\u003CMain\u003Eb__0_0",
+    "Method": "\u003CMain\u003Eb__0_1",
     "RelativePath": "api/tickets",
     "HttpMethod": "GET",
     "IsController": false,
@@ -18,7 +18,7 @@
   },
   {
     "ContainingType": "TicketSystem.Program\u002B\u003C\u003Ec",
-    "Method": "\u003CMain\u003Eb__0_1",
+    "Method": "\u003CMain\u003Eb__0_2",
     "RelativePath": "api/tickets",
     "HttpMethod": "POST",
     "IsController": false,

@@ -1,33 +1,39 @@
 ﻿@{
     ViewData["Title"] = "Home";
 }
-
+<div class="button-row">
 <button class="submit" onclick="CreateTicket()">Neues Ticket erstellen</button>
 <button class="submit" onclick="GetAllAsync()">Alle Tickets anzeigen</button>
 <button class="submit" onclick="UpdateTicketRequest()">Ticket bearbeiten</button>
 <button class="submit" onclick="GetByIdAsync">Nach ID suchen</button>
 <button class="submit" onclick="DeleteTicketRequest()">Ticket löschen</button>
-
+</div>
 <div>
 </div>
 <style>
+    .button-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+		flex-wrap: wrap;
+	}
     button.submit {
         background-color: #4f765a;
         color: white;
         padding: 10px 20px;
         border: none;
-        border-radius: 5px;
+        border-radius: 8px;
         cursor: pointer;
         font-size: 1em;
-        margin: 10px;
+        margin: 0px;
         font-family: Helvetica, sans-serif;
 		text-align: center;
-        display: flex;
+        display: block;
 		justify-content: center;
 		align-items: center;
 	}
     button.submit:hover {
         background-color: #3e5d46;
-			font-size: 1.1em;
 		}
 </style>

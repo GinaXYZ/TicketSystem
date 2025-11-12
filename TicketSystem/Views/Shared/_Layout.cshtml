@@ -6,13 +6,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ticket System</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
-        <h1>Ticket System</h1>
+		<a href="/">Ticket System</a>
 	</header>
     <main class="container mt-4">
         @RenderBody()
@@ -21,13 +20,8 @@
 </body>
 </html>
 <style>
-	h1 {
-        color: #4f765a;
-        font-family: Helvetica, sans-serif;
-		text-align: center;
-	}
-
 	text-center {
+		margin: 10px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -36,6 +30,25 @@
 		font-family: Helvetica, sans-serif;
 		text-align: center;
 	}
+	header a {
+		padding: 10px;
+		text-align: center;
+		justify-content: center;
+		color: #4f765a;
+		font-weight: bold;
+		font-size: 2.5em;
+		background-color: white;
+		display: flex;
+		text-decoration: none;
+		margin-bottom: 20px;
+	}
+	header a:hover {
+			color: #4f765a;
+			text-decoration: none;
+			outline: none;
+			box-shadow: none;
+			cursor: pointer;
+		}
 </style>
 
 

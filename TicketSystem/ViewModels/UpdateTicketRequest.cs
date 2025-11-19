@@ -4,8 +4,8 @@ namespace TicketSystem.ViewModels
 {
     public class UpdateTicketRequest
     {
-        public string? Title { get; set; }
-        public string? Description { get; set; }
-        public string? Status { get; set; }
+        public string? Titel { get; set; }
+        public string? Beschreibung { get; set; }
+        public string? Status_Id { get; set; }
     }
 }

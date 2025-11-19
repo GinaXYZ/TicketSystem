@@ -1,6 +1,7 @@
 ﻿using TicketSystem.Models;
 using TicketSystem.ViewModels;
 using TicketSystem.Services.Interfaces;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace TicketSystem.Services
 {
@@ -29,14 +30,16 @@ namespace TicketSystem.Services
         {
             var ticket = new Ticket
             {
-                Title = model.Title,
-                Description = model.Description,
-                CreatedAt = DateTime.UtcNow,
-                Status = "Open"
+                Titel = model.Titel,
+                Beschreibung = model.Beschreibung,
+                Erstellungsdatum = DateTime.UtcNow,
+                Status_Id = 1,
+                Kategorie_Id = 1,
+                Priorität_Id = 1,
+                Ersteller_Id = 1
             };
             return await _repository.CreateAsync(ticket);
         }
-
         public async Task<Ticket?> UpdateTicketAsync(int id, UpdateTicketRequest model)
         {
             var existingTicket = await _repository.GetByIdAsync(id);
@@ -44,9 +47,21 @@ namespace TicketSystem.Services
             {
                 return null;
             }
-            existingTicket.Title = model.Title;
-            existingTicket.Description = model.Description;
-            existingTicket.Status = model.Status;
+            existingTicket.Titel = model.Titel;
+            existingTicket.Beschreibung = model.Beschreibung;
+
+            if (string.IsNullOrWhiteSpace(model.Status_Id))
+            {
+                existingTicket.Status_Id = null;
+            }
+            else if (int.TryParse(model.Status_Id, out var statusId))
+            {
+                existingTicket.Status_Id = statusId;
+            }
+            else
+            {
+                existingTicket.Status_Id = null;
+            }
             return await _repository.UpdateAsync(existingTicket);
         }
         public async Task<bool> DeleteTicketAsync(int id)

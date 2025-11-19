@@ -1,0 +1,21 @@
+﻿@{
+	Layout = "_Layout";
+}
+
+<h2>Login</h2>
+
+<form method="post" asp-controller="Home" asp-action="Login">
+	<div>
+		<label for="username">Benutzername:</label>
+		<input type="text" id="username" name="username" required />
+	</div>
+	<div>
+		<label for="password">Passwort:</label>
+		<input type="password" id="password" name="password" required />
+	</div>
+	<div>
+		<button type="submit" class="submit">Anmelden</button>
+	</div>
+	</form>
+
+

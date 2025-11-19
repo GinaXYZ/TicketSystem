@@ -13,29 +13,41 @@ namespace TicketSystem.Data.Repositories
         {
             _context = context;
         }
-        public Task<Ticket> CreateAsync(Ticket ticket)
+        public async Task<Ticket> CreateAsync(Ticket ticket)
         {
-            throw new NotImplementedException();
+            _context.TICKET.Add(ticket);
+            await _context.SaveChangesAsync();
+            return ticket;
         }
 
-        public Task<bool> DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+           var ticket = await _context.TICKET.FindAsync(id);
+              if (ticket == null)
+              {
+                return false;
+            }
+              _context.TICKET.Remove(ticket);
+                await _context.SaveChangesAsync();
+                return true;
+
         }
 
-        public Task<IEnumerable<Ticket>> GetAllAsync()
-        {
-            throw new NotImplementedException();
+        public async Task<IEnumerable<Ticket>> GetAllAsync()
+        { 
+            return await _context.TICKET.ToListAsync();
         }
 
-        public Task<Ticket?> GetByIdAsync(int id)
+        public async Task<Ticket?> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+           return await _context.TICKET.FindAsync(id);
         }
 
-        public Task<Ticket?> UpdateAsync(Ticket ticket)
+        public async Task<Ticket?> UpdateAsync(Ticket ticket)
         {
-            throw new NotImplementedException();
+            _context.TICKET.Update(ticket);
+            await _context.SaveChangesAsync();
+            return ticket;
         }
     }
 }

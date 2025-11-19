@@ -45,11 +45,11 @@
       "CreateTicketRequest": {
         "type": "object",
         "properties": {
-          "title": {
+          "titel": {
             "type": "string",
             "nullable": true
           },
-          "description": {
+          "beschreibung": {
             "type": "string",
             "nullable": true
           }

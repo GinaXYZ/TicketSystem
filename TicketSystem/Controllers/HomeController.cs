@@ -45,16 +45,19 @@ namespace TicketSystem.Controllers
 
         public IActionResult CreateTicket()
         {
+
             return View();
         }
 
         public IActionResult UpdateTicket()
         {
+
             return View();
         }
 
         public IActionResult DeleteTicket()
         {
+
             return View();
         }
         [AllowAnonymous]
@@ -106,7 +109,6 @@ namespace TicketSystem.Controllers
         }
 
         [HttpPost]
-        [HttpGet] // Temporär zum Debuggen - später entfernen!
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

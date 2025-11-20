@@ -5,9 +5,13 @@
 <html lang="de">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Ticket System</title>
 </head>
 <body>
+	<header>
+		<a href="/Home/Index" class="page-title">Ticket System</a>
+	</header>
     <main class="container mt-4">
         @RenderBody()
     </main>
@@ -27,6 +31,15 @@
 			font: inherit;
 			color: #4f765a;
 		}
+		container.mt-4 {
+			margin: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 1.2em;
+			font-family: Helvetica, sans-serif;
+			text-align: center;
+	}
 		text-center {
 			margin: 10px;
 			display: flex;
@@ -79,11 +92,20 @@
 		}
 
 		.h1 {
+			display: flex;
+			font-size: 2.5em;
 			color: #4f765a;
 			text-align: center;
 			justify-content: center;
 			margin-bottom: 20px;
-			align-items: center;
+			align-items: center; 
+		}
+		.h1:hover {
+				color: #4f765a;
+				text-decoration: none;
+				outline: none;
+				box-shadow: none;
+				cursor: pointer;
 		}
 
 		body {
@@ -118,10 +140,10 @@
 			justify-content: center;
 			gap: 10px;
 			flex-wrap: wrap;
-		background-color: #f9f9f9;
+			background-color: lightgrey;
 			padding: 15px;
-			border-radius: 8px;
 			margin-bottom: 20px;
+			font-family: Helvetica, sans-serif;
 
 		}
 
@@ -133,12 +155,13 @@
 			border-radius: 8px;
 			cursor: pointer;
 			font-size: 1em;
-			margin: 0px;
+			margin: auto;
 			font-family: Helvetica, sans-serif;
 			text-align: center;
 			display: block;
 			justify-content: center;
 			align-items: center;
+			margin-bottom: 10px;
 		}
 
 		button.submit:hover {
@@ -259,6 +282,37 @@
 			display: block;
 		}
 
+
+	.logoutForm {
+		border: none !important;
+		padding: 0 !important;
+		margin: 0 !important;
+		background: none !important;
+		max-width: none !important;
+		display: inline !important;
+		margin-bottom: 10px;
+	}
+
+	.page-title {
+		display: flex;
+		font-family: Helvetica, sans-serif;
+		font-size: 2.5em;
+		color: #4f765a;
+		text-align: center;
+		justify-content: center;
+		margin-bottom: 20px;
+		align-items: center; 
+		margin: auto;
+		background-color: lightgrey;
+		padding: 10px;
+	}
+	.page-title:hover {
+			color: #4f765a;
+			text-decoration: none;
+			outline: none;
+			box-shadow: none;
+			cursor: pointer;
+		}
 
 </style>
 

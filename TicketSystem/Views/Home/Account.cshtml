@@ -14,9 +14,8 @@
 </p>
 <p>Hier können Sie Ihre Kontoeinstellungen verwalten und Ihre Tickets einsehen.</p>
 
-<form id="logoutForm" action="/Home/Logout" method="post" style="display: inline;">
+<form id="logoutForm" action="/Home/Logout" method="post" class="logoutForm">
     @Html.AntiForgeryToken()
-    <input type="hidden" name="returnUrl" value="/" />
 </form>
 
 <button type="button" class="submit" onclick="document.getElementById('logoutForm').submit();">Ausloggen</button>

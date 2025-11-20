@@ -15,7 +15,7 @@ namespace TicketSystem.Services
             _repository = repository;
         }
 
-        public async Task<IEnumerable<Ticket>> GetAllTicketsAsync()
+        public async Task<IEnumerable<Ticket>> GetAllTickets()
         {
             return await _repository.GetAllAsync();
         }

@@ -106,7 +106,15 @@ namespace TicketSystem.Controllers
         }
 
         [HttpPost]
-        [HttpGet] // Temporär zum Debuggen - später entfernen!
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction(nameof(Index));
+        }
+
+        // Fallback für GET-Requests (nur für Debugging, später entfernen!)
+        [HttpGet]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

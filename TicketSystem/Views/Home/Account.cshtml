@@ -1,0 +1,30 @@
+﻿@{
+	Layout = "_Layout";
+}
+
+<h2>Mein Konto</h2>
+<p>Willkommen, @(User?.Identity?.Name ?? "Gast")!</p>
+<p>
+    @{
+        var email = (User?.Identity?.IsAuthenticated ?? false)
+            ? (User as System.Security.Claims.ClaimsPrincipal)?.FindFirst(System.Security.Claims.ClaimTypes.Email)?.Value
+            : null;
+    }
+    @(email ?? "Keine E-Mail verfügbar")
+</p>
+<p>Hier können Sie Ihre Kontoeinstellungen verwalten und Ihre Tickets einsehen.</p>
+
+<form id="logoutForm" action="/Home/Logout" method="post" style="display: inline;">
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="returnUrl" value="/" />
+</form>
+
+<button type="button" class="submit" onclick="document.getElementById('logoutForm').submit();">Ausloggen</button>
+
+<button class="submit" onclick="window.location.href='@Url.Action("Index", "Home")'">Zurück zur Startseite</button>
+
+<script>
+    console.log('Logout form action:', document.getElementById('logoutForm').action);
+</script>
+
+

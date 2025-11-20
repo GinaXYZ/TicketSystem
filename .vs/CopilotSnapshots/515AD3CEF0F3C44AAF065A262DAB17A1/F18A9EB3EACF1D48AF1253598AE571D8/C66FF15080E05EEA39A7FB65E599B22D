@@ -106,11 +106,11 @@ namespace TicketSystem.Controllers
         }
 
         [HttpPost]
-        [HttpGet] // Temporär zum Debuggen - später entfernen!
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index");
         }
 
         [HttpPost]

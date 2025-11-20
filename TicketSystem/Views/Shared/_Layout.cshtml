@@ -8,9 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-    <header>
-		<a href="/">Ticket System</a>
-	</header>
     <main class="container mt-4">
         @RenderBody()
     </main>
@@ -82,7 +79,7 @@
 		}
 
 		.h1 {
-		color: #4f765a;
+			color: #4f765a;
 			text-align: center;
 			justify-content: center;
 			margin-bottom: 20px;
@@ -121,6 +118,11 @@
 			justify-content: center;
 			gap: 10px;
 			flex-wrap: wrap;
+		background-color: #f9f9f9;
+			padding: 15px;
+			border-radius: 8px;
+			margin-bottom: 20px;
+
 		}
 
 		button.submit {
@@ -232,6 +234,31 @@
 				background-color: #ddd;
 				margin: auto;
 	}
+	button.account {
+		background-color: #4f765a;
+		color: white;
+		padding: 10px 20px;
+		border-radius: 8px;
+		cursor: pointer;
+		font-size: 1em;
+		font-family: Helvetica, sans-serif;
+		text-align: center;
+		margin: 0;
+		border: none;
+		padding: 10px 20px;
+		display: flex;
+		justify-content: right;
+	}
+	button.account:hover {
+			background-color: #3e5d46;
+		}
+
+		button.account svg {
+			width: 1.2em;
+			height: 1.2em;
+			display: block;
+		}
+
 
 </style>
 

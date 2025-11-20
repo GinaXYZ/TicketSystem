@@ -32,8 +32,6 @@ namespace TicketSystem
                     options.AccessDeniedPath = "/Home/AccessDenied";
                 });
 
-            builder.Services.AddControllers();
-
             var app = builder.Build();
 
             using (var scope = app.Services.CreateScope())
@@ -88,7 +86,7 @@ namespace TicketSystem
 
             app.MapGet("/api/tickets", async ([Microsoft.AspNetCore.Mvc.FromServices] TicketService service) =>
             {
-                return Results.Ok(await service.GetAllTicketsAsync());
+                return Results.Ok(await service.GetAllTickets());
             })
             .WithName("GetTickets")
             .WithOpenApi();

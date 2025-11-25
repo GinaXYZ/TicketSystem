@@ -9,6 +9,8 @@
         public int? Kategorie_Id { get; set; }
         public string? Titel { get; set; }
         public string? Beschreibung { get; set; }
+        
+        public string? Email { get; set; }
         public DateTime? Erstellungsdatum { get; set; }
         public DateTime? Fälligkeitsdatum { get; set; }
     }

@@ -1,13 +1,11 @@
 ﻿@model IEnumerable<TicketSystem.Models.Ticket>
 @{
     ViewData["Title"] = "Home";
-	Layout = "_Layout";
+    Layout = "_Layout";
 }
 
-
-
 <div class="button-row">
-	<button class="submit" onclick="window.location.href='/Home/Index'" >Alle Tickets anzeigen</button>
+    <button class="submit" onclick="window.location.href='/Home/Index'">Alle Tickets anzeigen</button>
     <button class="submit" onclick="CreateTicket()">Neues Ticket erstellen</button>
     <button class="submit" onclick="GetByIdAsync()">Nach ID suchen</button>
     <button class="login" onclick="window.location.href='/Home/Login'">Login</button>
@@ -18,12 +16,11 @@
     </button>
 </div>
 
-@if (ViewBag.ShowAll == true)
+@if (User?.Identity?.IsAuthenticated == true)
 {
-    if (User?.Identity?.IsAuthenticated == false)
-    { 
-        if (Model != null && Model.Any())
-        {
+    @if (Model != null && Model.Any())
+    {
+        <div class="alltickets">
             <table class="ticketTable">
                 <thead>
                     <tr>
@@ -31,6 +28,8 @@
                         <th>Titel</th>
                         <th>Beschreibung</th>
                         <th>Status</th>
+                        <th>Erstellungsdatum</th>
+                        <th>Email</th>
                         <th>Aktionen</th>
                     </tr>
                 </thead>
@@ -42,21 +41,27 @@
                             <td>@ticket.Titel</td>
                             <td>@ticket.Beschreibung</td>
                             <td>@ticket.Status_Id</td>
-                            <td>@ticket.Erstellungsdatum?.ToString("dd.MM.yyy HH:mm") ?? "N/A")</td>
+                            <td>@(ticket.Erstellungsdatum?.ToString("dd.MM.yyyy HH:mm") ?? "N/A")</td>
+							<td>@ticket.Email</td>
+                            <td></td>
                         </tr>
                     }
                 </tbody>
             </table>
-        }
-        else
-        {
-            <p>Keine Tickets verfügbar.</p>
-		}
+        </div>
+    }
+    else
+    {
+        <p class="text-center">Keine Tickets verfügbar.</p>
     }
 }
-    
+else
+{
+    <p class="text-center">Bitte melden Sie sich an, um Tickets zu sehen.</p>
+}
 
 <div class="newTicket">
+    <form method="post" asp-action="CreateTicket">
         <div>
             <label for="title">Titel:</label>
             <input type="text" id="title" name="title" required />
@@ -68,33 +73,32 @@
         <div>
             <label for="status">Status:</label>
             <select id="status" name="status" required>
-                <option value="Open">Offen</option>
-                <option value="InProgress">In Bearbeitung</option>
-                <option value="Closed">Geschlossen</option>
+                <option value="1">Offen</option>
+                <option value="2">In Bearbeitung</option>
+                <option value="3">Geschlossen</option>
             </select>
         </div>
         <div>
             <button type="submit" class="submit">Ticket erstellen</button>
         </div>
         <div class="cancel">
-			<button type="button" onclick="HideTicketForm()">Abbrechen</button>
-		</div>
-	</div>
-
-
+            <button type="button" onclick="HideTicketForm()">Abbrechen</button>
+        </div>
+    </form>
+</div>
 
 <script>
     function CreateTicket() {
-        document.querySelector('.newTicket').style.display = 'block';
+        document.querySelector('.newTicket').style.display = 'flex';
     }
     function HideTicketForm() {
         document.querySelector('.newTicket').style.display = 'none';
-	}
+    }
 
     function GetByIdAsync() {
         const ticketId = prompt("Bitte geben Sie die Ticket-ID ein:");
         if (ticketId) {
             window.location.href = `/Home/GetById/${ticketId}`;
         }
-	}
+    }
 </script>

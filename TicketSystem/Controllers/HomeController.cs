@@ -17,49 +17,36 @@ namespace TicketSystem.Controllers
         {
             _ticketService = ticketService;
         }
-        [HttpGet]
-        public async Task<IActionResult> Index([FromQuery] bool show = false)
-        {
-            ViewBag.ShowAll = show;
 
+        public async Task<IActionResult> Index()
+        {
             IEnumerable<Ticket>? tickets = null;
 
-            if (show && (User?.Identity?.IsAuthenticated ?? false))
+            if (User?.Identity?.IsAuthenticated ?? false)
             {
                 tickets = await _ticketService.GetAllTickets();
             }
 
-            return View(tickets);
+            return View(tickets);       
         }
+
         public IActionResult Error()
         {
             return View("Error");
         }
-        [Authorize]
+
+        [AllowAnonymous]
         [HttpGet]
-        public async Task<IActionResult> GetAllTickets()
+        public IActionResult Login(string? returnUrl = null)
         {
-            var tickets = await _ticketService.GetAllTickets();
-            return View(tickets);
+            if (User?.Identity?.IsAuthenticated ?? false)
+            {
+                return RedirectToAction("Index");
+            }
+            ViewData["ReturnUrl"] = returnUrl;
+            return View("Login");
         }
 
-        public IActionResult CreateTicket()
-        {
-
-            return View();
-        }
-
-        public IActionResult UpdateTicket()
-        {
-
-            return View();
-        }
-
-        public IActionResult DeleteTicket()
-        {
-
-            return View();
-        }
         [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password, string? returnUrl = null)
@@ -73,7 +60,6 @@ namespace TicketSystem.Controllers
                 };
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-
                 var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
@@ -88,23 +74,6 @@ namespace TicketSystem.Controllers
 
             ModelState.AddModelError(string.Empty, "Ungültiger Benutzername oder Passwort.");
             ViewData["ReturnUrl"] = returnUrl;
-            return View("Account");
-        }
-
-        public IActionResult AccessDenied()
-        {
-            return View("Error");
-        }
-
-        [AllowAnonymous]
-        [HttpGet]
-        public IActionResult Login(string? returnUrl = null)
-        {
-            if (User?.Identity?.IsAuthenticated ?? false)
-            {
-                return RedirectToAction("Account");
-            }
-            ViewData["ReturnUrl"] = returnUrl;
             return View("Login");
         }
 
@@ -113,6 +82,15 @@ namespace TicketSystem.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction(nameof(Index));
+        }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult Account()
+        {
+            var username = User.Identity?.Name;
+            ViewBag.Username = username;
+            return View("Account");
         }
 
         [HttpPost]
@@ -149,14 +127,10 @@ namespace TicketSystem.Controllers
             }
             return NotFound();
         }
-        [Authorize]
-        [HttpGet]
-        public IActionResult Account()
+
+        public IActionResult AccessDenied()
         {
-                var username = User.Identity?.Name;
-                ViewBag.Username = username;
-                return View("Account");
+            return View("Error");
         }
     }
 }
- 

@@ -29,6 +29,7 @@ namespace TicketSystem.Data
                 entity.Property(e => e.Kategorie_Id).HasColumnName("Kategorie_Id");
                 entity.Property(e => e.Priorität_Id).HasColumnName("Priorität_Id");
                 entity.Property(e => e.Status_Id).HasColumnName("Status_Id");
+                entity.Property(e => e.Email).HasColumnName("Email");
             });
         }
     }

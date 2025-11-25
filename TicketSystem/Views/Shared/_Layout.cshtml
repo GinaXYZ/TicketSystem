@@ -84,11 +84,11 @@
 		}
 
 		.title {
-			color: #333333;
 			text-align: center;
 			justify-content: center;
 			margin-bottom: 20px;
 			align-items: center;
+		box-shadow: 0 7px 0px -1px rgba(0, 0, 0, 0.1);
 		}
 
 		.h1 {
@@ -130,8 +130,6 @@
 			font-size: 1em;
 			font-family: Helvetica, sans-serif;
 			text-align: center;
-			justify-content: center;
-			align-items: center;
 			margin-bottom: 10px;
 		}
 
@@ -140,11 +138,12 @@
 			justify-content: center;
 			gap: 10px;
 			flex-wrap: wrap;
-			background-color: lightgrey;
 			padding: 15px;
 			margin-bottom: 20px;
 			font-family: Helvetica, sans-serif;
-
+			border: 1px solid #4f765a;
+			border-top: none;
+			box-shadow: 0 7px 0px -1px rgba(0, 0, 0, 0.1);
 		}
 
 		button.submit {
@@ -155,41 +154,48 @@
 			border-radius: 8px;
 			cursor: pointer;
 			font-size: 1em;
-			margin: auto;
 			font-family: Helvetica, sans-serif;
 			text-align: center;
-			display: block;
-			justify-content: center;
-			align-items: center;
-			margin-bottom: 10px;
+			box-shadow: 0 6px 0px -1px rgba(0, 0, 0, 0.1);
 		}
 
 		button.submit:hover {
 			background-color: #3e5d46;
+			box-shadow: 0 6px 0px -1px rgba(0, 0, 0, 0.1);
 		}
 
 		button.login {
 		background-color: #4f765a;
 		color: white;
 		padding: 10px 20px;
+		border: none;
 		border-radius: 8px;
 		cursor: pointer;
 		font-size: 1em;
 		font-family: Helvetica, sans-serif;
 		text-align: center;
-		margin: 0;
-		border: none;
-		padding: 10px 20px;
-		display: flex;
-		justify-content: left;
+		margin-bottom: 10px;
+		box-shadow: 0 6px 0px -1px rgba(0, 0, 0, 0.1) !important;
 	}
 
 		button.login:hover {
 			background-color: #3e5d46;
+			box-shadow: 0 6px 0px -1px rgba(0, 0, 0, 0.1);
 		}
+
+		div.newTicket {
+						margin: auto;
+	}
 
 		.newTicket {
 			display: none;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		align-items: center;
+		margin: auto;
+		padding: 10px;
+		border: none !important;
 		}
 
 		.newTicket form {
@@ -199,9 +205,11 @@
 			max-width: 400px;
 			margin: 20px auto;
 			padding: 20px;
-			border: 1px solid #ccc;
-			border-radius: 8px;
 			background-color: #f9f9f9;
+			justify-content: center;
+			text-align: center;
+			align-items: center;
+			border: none !important;
 		}
 
 		.newTicket .cancel button {
@@ -209,15 +217,15 @@
 			color: white;
 			padding: 10px 20px;
 			border: none;
-			border-radius: 8px;
 			cursor: pointer;
 			font-size: 1em;
-			margin: 0px;
 			font-family: Helvetica, sans-serif;
 			text-align: center;
-			display: grid;
-			justify-content: right;
+			display: flex;
+			justify-content: center;
+			text-align: center;
 			align-items: center;
+			box-shadow: 0 7px 0px -1px rgba(0, 0, 0, 0.1);
 		}
 
 		.tr {
@@ -232,6 +240,7 @@
 
 	.alltickets {
 			margin: auto;
+			width: 100%;
 			}
 			table {
 				width: 100%;
@@ -243,6 +252,8 @@
 				padding: 8px;
 				text-align: left;
 				margin: auto;
+				color: #4f765a;
+				margin: auto;
 			}
 			th {
 				background-color: #4f765a;
@@ -253,27 +264,23 @@
 				background-color: #f2f2f2;
 				margin: auto;
 			}
-			tr:hover {
-				background-color: #ddd;
-				margin: auto;
-	}
 	button.account {
 		background-color: #4f765a;
 		color: white;
 		padding: 10px 20px;
+		border: none;
 		border-radius: 8px;
 		cursor: pointer;
 		font-size: 1em;
 		font-family: Helvetica, sans-serif;
 		text-align: center;
-		margin: 0;
-		border: none;
-		padding: 10px 20px;
-		display: flex;
-		justify-content: right;
+		margin-bottom: 10px;
+		box-shadow: 0 6px 0px -1px rgba(0, 0, 0, 0.1) !important;
 	}
+
 	button.account:hover {
 			background-color: #3e5d46;
+			box-shadow: 0 6px 0px -1px rgba(0, 0, 0, 0.1) !important;
 		}
 
 		button.account svg {
@@ -303,8 +310,10 @@
 		margin-bottom: 20px;
 		align-items: center; 
 		margin: auto;
-		background-color: lightgrey;
 		padding: 10px;
+		border-bottom: none !important;
+		border: 1px solid #4f765a;
+		box-shadow: none !important;
 	}
 	.page-title:hover {
 			color: #4f765a;
@@ -313,8 +322,19 @@
 			box-shadow: none;
 			cursor: pointer;
 		}
-
+	.actions {
+		display: flex;
+		justify-content: center;
+		gap: 10px;
+		flex-wrap: wrap;
+		padding: 15px;
+		margin-bottom: 20px;
+		font-family: Helvetica, sans-serif;
+	}
 </style>
+
+
+
 
 
 

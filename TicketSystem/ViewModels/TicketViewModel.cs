@@ -9,5 +9,10 @@ namespace TicketSystem.ViewModels
         public string Titel { get; set; } = string.Empty;
         public string Beschreibung { get; set; } = string.Empty;
         public string? Status_Id { get; set; } = string.Empty;
+
+        public string Status { get; set; }  = string.Empty;
+
+        public string Email { get; set; } = string.Empty;
+
     }
 }

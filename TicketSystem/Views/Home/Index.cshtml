@@ -16,6 +16,84 @@
     </button>
 </div>
 
+
+<div class="newTicket" style="display: none;">
+    <h2>Neues Ticket erstellen</h2>
+    <form id="ticketForm" method="post" action="/Home/CreateTicket">
+        
+        <div class="form-field">
+            <label for="Titel">Titel:</label>
+            <input type="text" id="Titel" name="Titel" required />
+        </div>
+        <div class="form-field">
+            <label for="Beschreibung">Beschreibung:</label>
+            <textarea id="Beschreibung" name="Beschreibung" rows="4" required></textarea>
+        </div>
+        <div class="form-field">
+            <label for="Email">E-Mail:</label>
+            <input type="email" id="Email" name="Email" />
+        </div>
+        <div class="form-field">
+            <label for="Status_Id">Status:</label>
+            <select id="Status_Id" name="Status_Id" required>
+                <option value="1" selected>Offen</option>
+                <option value="2">In Bearbeitung</option>
+                <option value="3">Geschlossen</option>
+            </select>
+        </div>
+        <div class="form-field">
+            <label for="Kategorie_Id">Kategorie:</label>
+            <select id="Kategorie_Id" name="Kategorie_Id" required>
+                <option value="1" selected>Technisches Problem</option>
+                <option value="2">Feature Request</option>
+                <option value="3">Bug Report</option>
+                <option value="4">Frage</option>
+                <option value="5">Sonstiges</option>
+            </select>
+        </div>
+        <div class="form-field">
+            <label for="Priorität_Id">Priorität:</label>
+            <select id="Priorität_Id" name="Priorität_Id" required>
+                <option value="1">Niedrig</option>
+                <option value="2" selected>Normal</option>
+                <option value="3">Hoch</option>
+                <option value="4">Kritisch</option>
+            </select>
+        </div>
+        <input type="hidden" name="Ersteller_Id" value="1" />
+        
+        <div class="form-actions">
+            <button type="submit" class="btn-submit">Ticket erstellen</button>
+            <button type="button" class="btn-cancel" onclick="HideTicketForm()">Abbrechen</button>
+        </div>
+    </form>
+</div>
+<div class="ticket-container">
+    <div class="openTickets">
+		<h3>Offene Tickets</h3>
+		<span class="ticket-count">@ViewBag.OpenTicketsCount</span>
+    </div>
+    <div class="inProgress">
+		<h3>In Bearbeitung</h3>
+		<span class="ticket-count">@ViewBag.InProgressCount</span>
+
+    </div>
+    <div class="closedTickets">
+		<h3>Geschlossen</h3>
+		<span class="ticket-count">@ViewBag.ClosedTicketsCount</span>
+    </div>
+</div>
+
+<div class="sort-section">
+    <label for="sort">Sortieren:</label>
+    <select id="sort" name="sort">
+        <option value="1">Asc</option>
+        <option value="2">Desc</option>
+        <option value="3">By ID asc</option>
+        <option value="4">By ID desc</option>
+    </select>
+</div>
+
 @if (User?.Identity?.IsAuthenticated == true)
 {
     @if (Model != null && Model.Any())
@@ -41,9 +119,16 @@
                             <td>@ticket.Titel</td>
                             <td>@ticket.Beschreibung</td>
                             <td>@ticket.Status_Id</td>
-                            <td>@(ticket.Erstellungsdatum?.ToString("dd.MM.yyyy HH:mm") ?? "N/A")</td>
-							<td>@ticket.Email</td>
-                            <td></td>
+                            <td>@(ticket.Erstellungsdatum.ToString("dd.MM.yyyy HH:mm") ?? "N/A")</td>
+                            <td>@ticket.Email</td>
+                            <td>
+                                <a href="@Url.Action("DeleteTicket", "Home", new { id = ticket.Id })"
+                                   onclick="return confirm('Möchten Sie dieses Ticket wirklich löschen?');"
+                                   class="delete-button"
+                                   title="Löschen">
+                                    🗑️
+                                </a>
+                            </td>
                         </tr>
                     }
                 </tbody>
@@ -60,38 +145,14 @@ else
     <p class="text-center">Bitte melden Sie sich an, um Tickets zu sehen.</p>
 }
 
-<div class="newTicket">
-    <form method="post" asp-action="CreateTicket">
-        <div>
-            <label for="title">Titel:</label>
-            <input type="text" id="title" name="title" required />
-        </div>
-        <div>
-            <label for="description">Beschreibung:</label>
-            <textarea id="description" name="description" required></textarea>
-        </div>
-        <div>
-            <label for="status">Status:</label>
-            <select id="status" name="status" required>
-                <option value="1">Offen</option>
-                <option value="2">In Bearbeitung</option>
-                <option value="3">Geschlossen</option>
-            </select>
-        </div>
-        <div>
-            <button type="submit" class="submit">Ticket erstellen</button>
-        </div>
-        <div class="cancel">
-            <button type="button" onclick="HideTicketForm()">Abbrechen</button>
-        </div>
-    </form>
-</div>
-
 <script>
     function CreateTicket() {
         document.querySelector('.newTicket').style.display = 'flex';
     }
+    
     function HideTicketForm() {
+        const form = document.getElementById('ticketForm');
+        form.reset();
         document.querySelector('.newTicket').style.display = 'none';
     }
 
@@ -101,4 +162,6 @@ else
             window.location.href = `/Home/GetById/${ticketId}`;
         }
     }
+        }
+    });
 </script>

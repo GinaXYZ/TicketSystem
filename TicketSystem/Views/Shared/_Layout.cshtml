@@ -149,7 +149,7 @@
 		button.submit {
 			background-color: #4f765a;
 			color: white;
-			padding: 10px 20px;
+		 	padding: 10px 20px;
 			border: none;
 			border-radius: 8px;
 			cursor: pointer;
@@ -183,12 +183,8 @@
 			box-shadow: 0 6px 0px -1px rgba(0, 0, 0, 0.1);
 		}
 
-		div.newTicket {
-						margin: auto;
-	}
-
 		.newTicket {
-			display: none;
+		display: none;
 		flex-direction: column;
 		justify-content: center;
 		text-align: center;
@@ -209,8 +205,97 @@
 			justify-content: center;
 			text-align: center;
 			align-items: center;
-			border: none !important;
+			border-radius: 1px;
+
 		}
+
+		.newTicket form .form-field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
+				border: none !important;
+}
+
+.newTicket form .form-field label {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+
+}
+
+.newTicket form .form-field input,
+.newTicket form .form-field textarea,
+.newTicket form .form-field select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.newTicket form .form-field textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.newTicket form .form-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.newTicket .cancel-button {
+    background-color: #6c757d;
+			box-shadow: 0 7px 0px -1px rgba(0, 0, 0, 0.1);
+}
+
+.newTicket .cancel-button:hover {
+    background-color: #5a6268;
+				box-shadow: 0 7px 0px -1px rgba(0, 0, 0, 0.1);
+}
+
+		.newTicket form .form-field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.newTicket form .form-field label {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.newTicket form .form-field input,
+.newTicket form .form-field textarea,
+.newTicket form .form-field select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.newTicket form .form-field textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.newTicket form .form-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.newTicket .cancel-button {
+    background-color: #6c757d;
+}
+
+.newTicket .cancel-button:hover {
+    background-color: #5a6268;
+}
 
 		.newTicket .cancel button {
 			background-color: #4f765a;
@@ -227,6 +312,11 @@
 			align-items: center;
 			box-shadow: 0 7px 0px -1px rgba(0, 0, 0, 0.1);
 		}
+
+		.newTicket .cancel button:hover {
+			background-color: #3e5d46;
+			box-shadow: 0 7px 0px -1px rgba(0, 0, 0, 0.1);
+			}
 
 		.tr {
 			background-color: #4f765a;	
@@ -322,14 +412,153 @@
 			box-shadow: none;
 			cursor: pointer;
 		}
-	.actions {
+	.sort {
+		text-align: center;
+		margin: auto;
+		padding: 10px;
+	}
+
+	.delete-button {
+		background: none;
+		border: none; 
+		cursor: pointer; 
+		font-size: 1.5em; 
+		text-decoration: none;
+		align-items: center;
+		align-content: center;
 		display: flex;
 		justify-content: center;
+		text-align: center;
+	}
+	.delete-button:hover {
+		text-decoration: none;
+		outline: none;
+		box-shadow: none;
+		cursor: pointer;
+		}
+	.btn-submit {
+    background-color: #4f765a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: Helvetica, sans-serif;
+    margin-right: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #3e5d46;
+}
+
+.btn-cancel {
+    background-color: #888;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: Helvetica, sans-serif;
+}
+
+.btn-cancel:hover {
+    background-color: #666;
+}
+
+.form-field {
+    margin-bottom: 15px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.sort-section {
+    margin: 10px 0;
+    text-align: center;
+}
+
+	.ticket-container {
+		display: flex;
+		flex-direction: row;
 		gap: 10px;
-		flex-wrap: wrap;
-		padding: 15px;
-		margin-bottom: 20px;
-		font-family: Helvetica, sans-serif;
+		justify-content: center;
+		align-items: flex-start;
+		font-weight: bold;
+		height: auto;
+		width: auto;
+	}
+
+	.openTickets {
+		text-align: justify;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 10px 20px;
+		flex: 1;
+		border: 1px solid #4f765a;
+		height: auto;
+		width: auto;
+		box-shadow: 0 6px 0px -1px rgba(0, 0, 0, 0.1) !important;
+	}
+
+	.inProgress {
+		text-align: justify;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 10px 20px;
+		flex: 1;
+		border: 1px solid #4f765a;
+		height: auto;
+		width: 100%;
+		box-shadow: 0 6px 0px -1px rgba(0, 0, 0, 0.1) !important;
+	}
+
+	.closedTickets {
+		text-align: justify;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 10px 20px;
+		flex: 1;
+		border: 1px solid #4f765a;
+		box-shadow: 0 6px 0px -1px rgba(0, 0, 0, 0.1) !important;
+	}
+
+	.ticket-count {
+		font-size: 1em;
+		margin-top: 10px;
+		color: #4f765a;
+	}
+
+	.openTickets h3,
+	.inProgress h3,
+	.closedTickets h3 {
+		margin: 0 0 10px 0;
+		font-size: 1em;
+		color: #4f765a;
 	}
 </style>
 

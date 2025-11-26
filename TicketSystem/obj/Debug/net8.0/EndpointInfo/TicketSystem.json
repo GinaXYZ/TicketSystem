@@ -52,6 +52,35 @@
           "beschreibung": {
             "type": "string",
             "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "status_Id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "kategorie_Id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ticket_Id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "priorität_Id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ersteller_Id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false

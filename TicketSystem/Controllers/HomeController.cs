@@ -18,6 +18,12 @@ namespace TicketSystem.Controllers
             _ticketService = ticketService;
         }
 
+        public IEnumerable<Ticket> Tickets { get; set; } = Enumerable.Empty<Ticket>();
+        public int? OpenTicketsCount { get; set; }
+        public int? ClosedTicketsCount { get; set; }
+        public int? InProgressCount { get; set; }
+
+
         public async Task<IActionResult> Index()
         {
             IEnumerable<Ticket>? tickets = null;
@@ -26,7 +32,9 @@ namespace TicketSystem.Controllers
             {
                 tickets = await _ticketService.GetAllTickets();
             }
-
+            ViewBag.OpenTicketsCount = tickets?.Count(t => t.Status_Id == 1) ?? 0;
+            ViewBag.ClosedTicketsCount = tickets?.Count(t => t.Status_Id == 3) ?? 0;
+            ViewBag.InProgressCount = tickets?.Count(t => t.Status_Id == 2) ?? 0;
             return View(tickets);       
         }
 

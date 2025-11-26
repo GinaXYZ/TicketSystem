@@ -9,14 +9,9 @@ using TicketSystem.ViewModels;
 
 namespace TicketSystem.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController(TicketService ticketService) : Controller
     {
-        private readonly TicketService _ticketService;
-
-        public HomeController(TicketService ticketService)
-        {
-            _ticketService = ticketService;
-        }
+        private readonly TicketService _ticketService = ticketService;
 
         public IEnumerable<Ticket> Tickets { get; set; } = Enumerable.Empty<Ticket>();
         public int? OpenTicketsCount { get; set; }
@@ -24,10 +19,10 @@ namespace TicketSystem.Controllers
         public int? InProgressCount { get; set; }
 
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page =1)
         {
             IEnumerable<Ticket>? tickets = null;
-
+            const int pageSize = 10;
             if (User?.Identity?.IsAuthenticated ?? false)
             {
                 tickets = await _ticketService.GetAllTickets();
@@ -35,6 +30,14 @@ namespace TicketSystem.Controllers
             ViewBag.OpenTicketsCount = tickets?.Count(t => t.Status_Id == 1) ?? 0;
             ViewBag.ClosedTicketsCount = tickets?.Count(t => t.Status_Id == 3) ?? 0;
             ViewBag.InProgressCount = tickets?.Count(t => t.Status_Id == 2) ?? 0;
+
+
+            if (tickets != null)
+            {
+                ViewBag.CurrentPage = page;
+                ViewBag.TotalPages = (int)Math.Ceiling(tickets.Count() / (double)pageSize);
+                tickets = tickets.Skip((page - 1) * pageSize).Take(pageSize);
+            }
             return View(tickets);       
         }
 

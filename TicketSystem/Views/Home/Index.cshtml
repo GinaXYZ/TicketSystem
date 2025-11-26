@@ -2,6 +2,8 @@
 @{
     ViewData["Title"] = "Home";
     Layout = "_Layout";
+	var currentPage = ViewBag.CurrentPage as int? ?? 1;
+	var totalPages = ViewBag.TotalPages as int? ?? 1;
 }
 
 <div class="button-row">
@@ -84,7 +86,7 @@
     </div>
 </div>
 
-<div class="sort-section">
+<div class="sort-section" id="sortTickets">
     <label for="sort">Sortieren:</label>
     <select id="sort" name="sort">
         <option value="1">Asc</option>
@@ -134,6 +136,23 @@
                 </tbody>
             </table>
         </div>
+
+        @if (totalPages > 1)
+        {
+            <div class="pagination">
+                @if (currentPage > 1)
+                {
+                    <a href="@Url.Action("Index", new { page = currentPage - 1 })" class="pagination-btn">← Zurück</a>
+                }
+
+                <span class="pagination-info">Seite @currentPage von @totalPages</span>
+
+                @if (currentPage < totalPages)
+                {
+                    <a href="@Url.Action("Index", new { page = currentPage + 1 })" class="pagination-btn">Weiter →</a>
+                }
+            </div>
+        }
     }
     else
     {
@@ -162,6 +181,8 @@ else
             window.location.href = `/Home/GetById/${ticketId}`;
         }
     }
-        }
-    });
+    function sortTickets() {
+        const sortOption = document.getElementById('sort').value;
+		window.location.href = `/Home/Index?sort=${sortOption}`;
+    }
 </script>

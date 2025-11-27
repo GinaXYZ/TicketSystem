@@ -88,11 +88,12 @@
 
 <div class="sort-section" id="sortTickets">
     <label for="sort">Sortieren:</label>
-    <select id="sort" name="sort">
-        <option value="1">Asc</option>
-        <option value="2">Desc</option>
-        <option value="3">By ID asc</option>
-        <option value="4">By ID desc</option>
+    <select id="sort" name="sort" onchange="sortTickets()">
+        <option value="">-- Bitte wählen --</option>
+        <option value="1" @(ViewBag.CurrentSort == "1" ? "selected" : "")>Status & Priorität (Asc)</option>
+        <option value="2" @(ViewBag.CurrentSort == "2" ? "selected" : "")>Status & Priorität (Desc)</option>
+        <option value="3" @(ViewBag.CurrentSort == "3" ? "selected" : "")>ID (Asc)</option>
+        <option value="4" @(ViewBag.CurrentSort == "4" ? "selected" : "")>ID (Desc)</option>
     </select>
 </div>
 
@@ -164,6 +165,7 @@ else
     <p class="text-center">Bitte melden Sie sich an, um Tickets zu sehen.</p>
 }
 
+
 <script>
     function CreateTicket() {
         document.querySelector('.newTicket').style.display = 'flex';
@@ -183,6 +185,10 @@ else
     }
     function sortTickets() {
         const sortOption = document.getElementById('sort').value;
-		window.location.href = `/Home/Index?sort=${sortOption}`;
+        if (sortOption) {
+            window.location.href = `/Home/Index?sortTickets=${sortOption}`;
+        } else {
+            window.location.href = `/Home/Index`;
+        }
     }
 </script>

@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|c:\\users\\fia\\source\\repos\\ticketsystem\\ticketsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|solutionrelative:ticketsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|c:\\users\\fia\\source\\repos\\ticketsystem\\ticketsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|solutionrelative:ticketsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|c:\\users\\fia\\source\\repos\\ticketsystem\\ticketsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|solutionrelative:ticketsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|c:\\users\\fia\\source\\repos\\ticketsystem\\ticketsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|solutionrelative:ticketsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|c:\\users\\fia\\source\\repos\\ticketsystem\\ticketsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|solutionrelative:ticketsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|c:\\users\\fia\\source\\repos\\ticketsystem\\ticketsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|solutionrelative:ticketsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,21 +26,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\TicketSystem\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "TicketSystem\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\TicketSystem\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "TicketSystem\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBIAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-26T07:48:18.112Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -47,29 +38,53 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\TicketSystem\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "TicketSystem\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\TicketSystem\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "TicketSystem\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-27T09:04:59.249Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\TicketSystem\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "TicketSystem\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\TicketSystem\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "TicketSystem\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAIwB0AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T07:48:18.112Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\TicketSystem\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "TicketSystem\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\TicketSystem\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "TicketSystem\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAKUAAAAAAAAAAAAAAK4AAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAJsAAAAAAAAAAAAuwLEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-11-26T07:44:48.434Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\TicketSystem\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "TicketSystem\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\TicketSystem\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "TicketSystem\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAL8BAAAAAAAAAAAswNABAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-25T07:26:03.119Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-25T07:26:03.119Z"
             }
           ]
         }

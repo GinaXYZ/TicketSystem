@@ -13,32 +13,45 @@ namespace TicketSystem.Controllers
     {
         private readonly TicketService _ticketService = ticketService;
 
-        public IEnumerable<Ticket> Tickets { get; set; } = Enumerable.Empty<Ticket>();
-        public int? OpenTicketsCount { get; set; }
-        public int? ClosedTicketsCount { get; set; }
-        public int? InProgressCount { get; set; }
-
-
-        public async Task<IActionResult> Index(int page =1)
+        public enum TicketStatus
+        {
+            Open = 1,
+            InProgress = 2,
+            Closed = 3
+        }
+        public async Task<IActionResult> Index(int page = 1, string? sortTickets = null)
         {
             IEnumerable<Ticket>? tickets = null;
             const int pageSize = 10;
+            
             if (User?.Identity?.IsAuthenticated ?? false)
             {
-                tickets = await _ticketService.GetAllTickets();
+                var allTickets = await _ticketService.GetAllTickets();
+                
+                tickets = sortTickets switch
+                {
+                    "1" => allTickets.OrderBy(t => t.Status_Id).ThenBy(t => t.Priorität_Id),
+                    "2" => allTickets.OrderByDescending(t => t.Status_Id).ThenByDescending(t => t.Priorität_Id),
+                    "3" => allTickets.OrderBy(t => t.Id),
+                    "4" => allTickets.OrderByDescending(t => t.Id),
+                    _ => allTickets
+                };
             }
+            
             ViewBag.OpenTicketsCount = tickets?.Count(t => t.Status_Id == 1) ?? 0;
             ViewBag.ClosedTicketsCount = tickets?.Count(t => t.Status_Id == 3) ?? 0;
             ViewBag.InProgressCount = tickets?.Count(t => t.Status_Id == 2) ?? 0;
 
-
             if (tickets != null)
             {
+                var totalCount = tickets.Count();
                 ViewBag.CurrentPage = page;
-                ViewBag.TotalPages = (int)Math.Ceiling(tickets.Count() / (double)pageSize);
-                tickets = tickets.Skip((page - 1) * pageSize).Take(pageSize);
+                ViewBag.TotalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+                tickets = tickets.Skip((page - 1) * pageSize).Take(pageSize).ToList();
             }
-            return View(tickets);       
+            
+            ViewBag.CurrentSort = sortTickets;
+            return View(tickets);
         }
 
         public IActionResult Error()
@@ -116,7 +129,7 @@ namespace TicketSystem.Controllers
         }
 
         public async Task<IActionResult> UpdateTicket(int id, UpdateTicketRequest model)
-        { 
+        {
             if (ModelState.IsValid)
             {
                 var updatedTicket = await _ticketService.UpdateTicketAsync(id, model);
@@ -142,6 +155,27 @@ namespace TicketSystem.Controllers
         public IActionResult AccessDenied()
         {
             return View("Error");
+        }
+
+        public async Task<IActionResult> GetById(int id)
+        {
+            var ticket = await _ticketService.GetTicketByIdAsync(id);
+            if (ticket == null)
+            {
+                return RedirectToAction("Error");
+            }
+
+            var tickets = new List<Ticket> { ticket };
+
+            ViewBag.OpenTicketsCount = tickets.Count(t => t.Status_Id == 1);
+            ViewBag.ClosedTicketsCount = tickets.Count(t => t.Status_Id == 3);
+            ViewBag.InProgressCount = tickets.Count(t => t.Status_Id == 2);
+            ViewBag.CurrentPage = 1;
+            ViewBag.TotalPages = 1;
+
+            return View("Index", tickets);
+
+
         }
     }
 }

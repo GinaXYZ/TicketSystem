@@ -1,10 +1,26 @@
-﻿namespace TicketSystem.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TicketSystem.Models
 {
     public class User
     {
         public int Id { get; set; }
-        public string? Username { get; set; }
-        public string? Email { get; set; }
-        public string? PhoneNumber { get; set; }
+
+        [Required]
+        [MaxLength(255)]
+        public string Name { get; set; } = string.Empty;
+
+        [Required]
+        [EmailAddress]
+        [MaxLength(255)]
+        public string Email { get; set; } = string.Empty;
+
+        [Required]
+        [MaxLength(255)]
+        public string PasswordHash { get; set; } = string.Empty;
+
+        [Required]
+        [MaxLength(50)]
+        public string Rolle { get; set; } = string.Empty;
     }
 }

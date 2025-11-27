@@ -299,3 +299,4 @@ C:\Users\FIA\source\repos\TicketSystem\TicketSystem\obj\Debug\net8.0\TicketSyste
 C:\Users\FIA\source\repos\TicketSystem\TicketSystem\obj\Debug\net8.0\ref\TicketSystem.dll
 C:\Users\FIA\source\repos\TicketSystem\TicketSystem\bin\Debug\net8.0\bundleconfig.json
 C:\Users\FIA\source\repos\TicketSystem\TicketSystem\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\FIA\source\repos\TicketSystem\TicketSystem\bin\Debug\net8.0\Microsoft.AspNet.Identity.Core.dll

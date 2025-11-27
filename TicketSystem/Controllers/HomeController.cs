@@ -2,16 +2,25 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using TicketSystem.Data;
 using TicketSystem.Models;
 using TicketSystem.Services;
 using TicketSystem.ViewModels;
 
 namespace TicketSystem.Controllers
 {
-    public class HomeController(TicketService ticketService) : Controller
+    public class HomeController : Controller
     {
-        private readonly TicketService _ticketService = ticketService;
+        private readonly TicketService _ticketService;
+        private readonly ApplicationDbContext _context;
+
+        public HomeController(TicketService ticketService, ApplicationDbContext context)
+        {
+            _ticketService = ticketService;
+            _context = context;
+        }
 
         public enum TicketStatus
         {
@@ -19,6 +28,7 @@ namespace TicketSystem.Controllers
             InProgress = 2,
             Closed = 3
         }
+        
         public async Task<IActionResult> Index(int page = 1, string? sortTickets = null)
         {
             IEnumerable<Ticket>? tickets = null;
@@ -75,14 +85,21 @@ namespace TicketSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password, string? returnUrl = null)
         {
-            if (username == "admin" && password == "password")
+            // Suche nach Email oder Name und vergleiche mit PasswordHash
+            var benutzer = await _context.BENUTZER
+                .FirstOrDefaultAsync(b => (b.Email == username || b.Name == username) 
+                                       && b.PasswordHash == password);
+
+            if (benutzer != null)
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, username),
-                    new Claim(ClaimTypes.Role, "Administrator"),
+                    new Claim(ClaimTypes.Name, benutzer.Name),
+                    new Claim(ClaimTypes.Email, benutzer.Email),
+                    new Claim(ClaimTypes.NameIdentifier, benutzer.Id.ToString()),
+                    new Claim(ClaimTypes.Role, benutzer.Rolle)
                 };
-
+                    
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
@@ -174,8 +191,6 @@ namespace TicketSystem.Controllers
             ViewBag.TotalPages = 1;
 
             return View("Index", tickets);
-
-
         }
     }
 }

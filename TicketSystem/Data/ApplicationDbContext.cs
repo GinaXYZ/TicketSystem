@@ -11,6 +11,7 @@ namespace TicketSystem.Data
         }
 
         public DbSet<Ticket> TICKET { get; set; }
+        public DbSet<User> BENUTZER { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -34,6 +35,20 @@ namespace TicketSystem.Data
                 entity.Property(e => e.Kategorie_Id).HasColumnName("kategorie_id").IsRequired();
                 entity.Property(e => e.Priorität_Id).HasColumnName("priorität_id").IsRequired();
                 entity.Property(e => e.Status_Id).HasColumnName("status_id").IsRequired();
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.ToTable("BENUTZER");
+                entity.HasKey(e => e.Id);
+                
+                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Name).HasColumnName("name").HasMaxLength(255).IsRequired();
+                entity.Property(e => e.Email).HasColumnName("email").HasMaxLength(255).IsRequired();
+                entity.Property(e => e.PasswordHash).HasColumnName("passwort_hash").HasMaxLength(255);
+                entity.Property(e => e.Rolle).HasColumnName("rolle").HasMaxLength(50).IsRequired();
+                
+                entity.HasIndex(e => e.Email).IsUnique();
             });
         }
     }

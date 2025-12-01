@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "_Layout";
+	Layout = "_Layout";
 }
 
 
@@ -18,11 +18,11 @@
 <form method="post" asp-controller="Home" asp-action="Login" asp-route-returnUrl="@ViewData["ReturnUrl"]">
     @Html.AntiForgeryToken()
     
-    <div>
+    <div class="form-field">
         <label for="username">Benutzername:</label>
         <input type="text" id="username" name="username" required />
     </div>
-    <div>
+    <div class="form-field">
         <label for="password">Passwort:</label>
         <input type="password" id="password" name="password" required />
     </div>
@@ -34,5 +34,43 @@
         <a href="@Url.Action("Index", "Home")" class="cancel">Abbrechen</a>
     </div>
 </form>
+
+<style>
+    form {
+        display: flex;
+		flex-direction: column;
+        gap: 15px;
+
+    }
+    .form-field {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        gap: 10px;
+		align-items: center;
+	}
+    .form-field label {
+        font-weight: bold;
+        text-align: left;
+		}
+
+        .form-field input {
+			width: 100%;
+        }
+
+    .cancel {
+        background-color: red;
+        text-decoration: none;
+        color: white;
+        border-radius: 8px;
+        padding: 10px 20px;
+        display: inline-block;
+        text-align: center;
+		margin-left: 10px;
+    }
+
+    .cancel:hover {
+        background-color: darkred;
+		}
+</style>
 
         

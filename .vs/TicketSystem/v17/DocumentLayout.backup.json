@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|c:\\users\\fia\\source\\repos\\ticketsystem\\ticketsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|solutionrelative:ticketsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|c:\\users\\fia\\source\\repos\\ticketsystem\\ticketsystem\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|solutionrelative:ticketsystem\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|c:\\users\\fia\\source\\repos\\ticketsystem\\ticketsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|solutionrelative:ticketsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|c:\\users\\fia\\source\\repos\\ticketsystem\\ticketsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|solutionrelative:ticketsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5E4DDA22-537A-4689-BFF9-15D784D6304A}|TicketSystem\\TicketSystem.csproj|c:\\users\\fia\\source\\repos\\ticketsystem\\ticketsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,21 +38,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\TicketSystem\\Views\\Home\\Login.cshtml",
-              "RelativeDocumentMoniker": "TicketSystem\\Views\\Home\\Login.cshtml",
-              "ToolTip": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\TicketSystem\\Views\\Home\\Login.cshtml",
-              "RelativeToolTip": "TicketSystem\\Views\\Home\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-27T10:57:23.39Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -60,6 +47,18 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\TicketSystem\\Views\\Home\\Login.cshtml",
+              "RelativeDocumentMoniker": "TicketSystem\\Views\\Home\\Login.cshtml",
+              "ToolTip": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\TicketSystem\\Views\\Home\\Login.cshtml",
+              "RelativeToolTip": "TicketSystem\\Views\\Home\\Login.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-27T10:57:23.39Z"
             },
             {
               "$type": "Document",
@@ -87,13 +86,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\TicketSystem\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "TicketSystem\\wwwroot\\css\\site.css",
               "ToolTip": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\TicketSystem\\wwwroot\\css\\site.css",
               "RelativeToolTip": "TicketSystem\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAALEAAAAAAAAAAAAAAM0AAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAABACAAAAAAAAAAAAACMCAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-11-27T09:04:59.249Z",
               "EditorCaption": ""
@@ -108,21 +107,19 @@
               "RelativeToolTip": "TicketSystem\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAGYAAAAAAAAAAAAmwIQAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-26T07:48:18.112Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-26T07:48:18.112Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\TicketSystem\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "TicketSystem\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\FIA\\source\\repos\\TicketSystem\\TicketSystem\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "TicketSystem\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-26T07:44:48.434Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-26T07:44:48.434Z"
             },
             {
               "$type": "Document",

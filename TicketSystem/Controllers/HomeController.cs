@@ -85,6 +85,30 @@ namespace TicketSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password, string? returnUrl = null)
         {
+            // Hardcodierte Admin-Credentials für Entwicklung
+            if (username == "admin" && password == "password")
+            {
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, "Admin"),
+                    new Claim(ClaimTypes.Email, "admin@ticketsystem.com"),
+                    new Claim(ClaimTypes.NameIdentifier, "0"),
+                    new Claim(ClaimTypes.Role, "Admin")
+                };
+                    
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
+
+                if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
+                {
+                    return LocalRedirect(returnUrl);
+                }
+
+                return RedirectToAction(nameof(Index));
+            }
+
             // Suche nach Email oder Name und vergleiche mit PasswordHash
             var benutzer = await _context.BENUTZER
                 .FirstOrDefaultAsync(b => (b.Email == username || b.Name == username) 

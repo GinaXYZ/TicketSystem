@@ -61,22 +61,20 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "dbo.TICKET [Daten]",
+              "Title": "dbo.TICKET.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/TicketSystem1/True/SqlTable/dbo.TICKET.sql",
-              "ToolTip": "dbo.TICKET [Daten]",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/TicketSystem1/True/SqlTable/dbo.TICKET.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-12-01T09:07:49.68Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-01T09:07:49.68Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "dbo.BENUTZER [Daten]",
+              "Title": "dbo.BENUTZER.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/TicketSystem1/True/SqlTable/dbo.BENUTZER.sql",
-              "ToolTip": "dbo.BENUTZER [Daten]",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/TicketSystem1/True/SqlTable/dbo.BENUTZER.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-12-01T09:07:27.138Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-01T09:07:27.138Z"
             },
             {
               "$type": "Document",
@@ -100,8 +98,7 @@
               "RelativeToolTip": "TicketSystem\\Views\\Home\\Login.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-27T10:57:23.39Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-27T10:57:23.39Z"
             },
             {
               "$type": "Document",
@@ -150,8 +147,7 @@
               "RelativeToolTip": "TicketSystem\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAG4AAAAAAAAAAAAowFwAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-26T07:48:18.112Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-26T07:48:18.112Z"
             },
             {
               "$type": "Document",
@@ -163,8 +159,7 @@
               "RelativeToolTip": "TicketSystem\\Views\\Home\\Index.cshtml",
               "ViewState": "AgIAAIcAAAAAAAAAAAAAAEkAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-26T07:44:48.434Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-26T07:44:48.434Z"
             },
             {
               "$type": "Document",
@@ -176,8 +171,7 @@
               "RelativeToolTip": "TicketSystem\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-25T07:26:03.119Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-25T07:26:03.119Z"
             }
           ]
         }

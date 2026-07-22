@@ -1,122 +1,127 @@
 # TicketSystem
 
-A web-based ticket management application built with ASP.NET Core MVC and SQL Server. The project demonstrates a layered application structure with authentication, repositories, services, view models, database access and REST endpoints.
+TicketSystem is a small help desk application built with ASP.NET Core MVC and SQL Server. It provides a browser-based interface for signing in, viewing tickets and managing their status, priority, category and due date.
+
+The project was developed during my training as an application developer and focuses on database-backed web development, authentication and separating application logic into clear layers.
+
+## Project status
+
+The main ticket workflow is implemented and can be run locally. The application is a learning and portfolio project, not a production-ready help desk system.
+
+The current authentication flow is intended for local development. Password handling and the development account must be replaced before the application is used in a real environment.
 
 ## Features
 
-- User login with cookie-based authentication
-- Create and display support tickets
-- Ticket categorisation, priority and status handling
-- Repository and service layers for separating data access from business logic
-- SQL Server database integration with Entity Framework Core
-- REST endpoints for retrieving and creating tickets
-- Swagger/OpenAPI support in the development environment
-- Automatic sample data creation when the database is empty
+- Cookie-based user authentication
+- Ticket overview with open, in-progress and closed ticket counts
+- Ticket creation, editing and deletion
+- Sorting by status, priority and ticket ID
+- Pagination of the ticket list
+- Ticket lookup by ID
+- Categories, priorities, statuses and optional due dates
+- SQL Server persistence through Entity Framework Core
+- Repository and service layers
+- REST endpoints for reading and creating tickets
+- Swagger/OpenAPI documentation in development mode
+- Initial sample tickets for an empty database
 
-## Tech Stack
+## Technology
 
 - C#
 - .NET 8
 - ASP.NET Core MVC
-- Entity Framework Core
-- SQL Server
 - Razor Views
+- Entity Framework Core
+- SQL Server / SQL Server LocalDB
 - Cookie Authentication
-- BCrypt
 - Swagger / OpenAPI
 
-## Project Structure
+## Architecture
+
+The application follows a simple layered structure:
 
 ```text
-TicketSystem/
-├── Controllers/        MVC controllers
-├── Data/               Database context and repositories
-├── Models/             Domain models
-├── Services/           Business logic
-├── ViewModels/         Data models used by views and API requests
-├── Views/              Razor views
-├── wwwroot/            Static assets
-└── Program.cs          Application configuration and endpoints
+Browser / API client
+        |
+Controllers and API endpoints
+        |
+Services
+        |
+Repositories
+        |
+Entity Framework Core
+        |
+SQL Server
 ```
 
-## API Endpoints
+Controllers handle HTTP requests and page navigation. Business operations are kept in the service layer, while repositories are responsible for database access. View models define the data used by forms and API requests.
 
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/api/tickets` | Returns all tickets |
-| POST | `/api/tickets` | Creates a new ticket |
+## API
 
-Swagger UI is available in development mode.
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/tickets` | Return all tickets |
+| `POST` | `/api/tickets` | Create a ticket |
 
-## Getting Started
+When the application runs in the development environment, Swagger UI is available at `/swagger`.
 
-### Prerequisites
+## Getting started
+
+### Requirements
 
 - .NET 8 SDK
 - SQL Server or SQL Server LocalDB
-- Visual Studio 2022, Rider or Visual Studio Code
+- Visual Studio, Rider or Visual Studio Code
 
-### Installation
+### Run the application
 
 ```bash
 git clone https://github.com/GinaXYZ/TicketSystem.git
 cd TicketSystem/TicketSystem
 dotnet restore
-```
-
-Add a valid SQL Server connection string named `DefaultConnection` to `appsettings.json` or use .NET user secrets.
-
-Example:
-
-```json
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=TicketSystem;Trusted_Connection=True;TrustServerCertificate=True"
-  }
-}
-```
-
-Apply the database migrations if required:
-
-```bash
 dotnet ef database update
-```
-
-Start the application:
-
-```bash
 dotnet run
 ```
 
-Open the local URL shown in the terminal. In development mode, Swagger is available at `/swagger`.
+The repository contains a LocalDB connection string for local development. To use another SQL Server instance, change `ConnectionStrings:DefaultConnection` in `appsettings.json` or provide it through .NET user secrets.
 
-## Architecture
+Open the local address printed in the terminal after the application starts.
 
-The application uses a layered approach:
+## Project structure
 
-1. Controllers and API endpoints receive requests.
-2. View models define the required input and output data.
-3. Services contain the application logic.
-4. Repositories handle database operations.
-5. Entity Framework Core maps the domain models to SQL Server.
+```text
+TicketSystem/
+├── Controllers/       MVC request handling and authentication
+├── Data/              DbContext and repository implementations
+├── Migrations/        Entity Framework Core migrations
+├── Models/            Database entities
+├── Services/          Ticket-related application logic
+├── ViewModels/        Form and API request models
+├── Views/             Razor pages
+├── wwwroot/           Styles, scripts and static files
+└── Program.cs         Dependency injection and app configuration
+```
 
-This structure keeps presentation, business logic and persistence concerns separated and makes the project easier to maintain and extend.
+## Known limitations
 
-## Possible Improvements
+- Authentication is currently designed for development use
+- Automated tests are not included yet
+- The API currently covers only listing and creating tickets
+- There is no attachment or comment system
+- Deployment and container configuration are not included
 
-- Add automated unit and integration tests
-- Expand role-based authorisation
-- Add ticket comments and file attachments
-- Add filtering, search and pagination
-- Add Docker support
-- Add a CI/CD workflow with GitHub Actions
-- Deploy the application to Azure or AWS
+## Possible next steps
 
-## Project Context
-
-This project was created during my training as an application developer to practise ASP.NET Core, authentication, database access, REST APIs and layered software architecture.
+- Replace the development login with ASP.NET Core Identity
+- Hash and verify all stored passwords securely
+- Add role-based permissions
+- Add ticket comments and attachments
+- Add API endpoints for updates and deletion
+- Add unit and integration tests
+- Add Docker and a GitHub Actions workflow
+- Deploy the application to a cloud environment
 
 ## Author
 
-**Gina**  
-[GitHub Profile](https://github.com/GinaXYZ) · [Portfolio](https://ginaxyz.net)
+Gina  
+[GitHub](https://github.com/GinaXYZ) | [Portfolio](https://ginaxyz.net)
